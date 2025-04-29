@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+// Desafio de Xadrez - MateCheck
+// Este código simula a movimentação de peças de xadrez (Bispo, Torre e Rainha) utilizando estruturas de repetição.
+// O objetivo é demonstrar o uso de diferentes tipos de loops em C e exibir a movimentação de cada peça.
+
+// Constantes de movimentação
+const int MOV_BISPO = 5;     // Bispo se move 5 vezes na diagonal superior direita
+const int MOV_TORRE = 5;     // Torre se move 5 vezes para a direita
+const int MOV_RAINHA = 8;    // Rainha se move 8 vezes para a esquerda
+
+int main() {
+    int i; // variável de controle comum para os laços
+
+    // ===============================
+    // Movimentação do Bispo
+    // ===============================
+    printf("Movimentação do Bispo (Diagonal Superior Direita):\n");
+    // Estrutura de repetição: for
+    for (i = 0; i < MOV_BISPO; i++) {
+        printf("Cima\n");
+        printf("Direita\n");
+    }
+    printf("\n");
+
+    // ===============================
+    // Movimentação da Torre
+    // ===============================
+    printf("Movimentação da Torre (Direita):\n");
+    // Estrutura de repetição: while
+    i = 0;
+    while (i < MOV_TORRE) {
+        printf("Direita\n");
+        i++;
+    }
+    printf("\n");
+
+    // ===============================
+    // Movimentação da Rainha
+    // ===============================
+    printf("Movimentação da Rainha (Esquerda):\n");
+    // Estrutura de repetição: do...while
+    i = 0;
+    do {
+        printf("Esquerda\n");
+        i++;
+    } while (i < MOV_RAINHA);
+    printf("\n");
+
+    return 0;
+}

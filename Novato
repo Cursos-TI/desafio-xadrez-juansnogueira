@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+// Desafio de Xadrez - MateCheck
+// Este programa simula a movimentação de peças de xadrez (Bispo, Torre e Rainha)
+// usando estruturas de repetição e constantes para limitar o número de movimentos.
+
+int main() {
+    // Constantes de movimentação
+    const int MOV_BISPO = 5;
+    const int MOV_TORRE = 5;
+    const int MOV_RAINHA = 8;
+
+    int i; // Variável de controle para loops
+
+    // ----------------------------
+    // Movimentação do Bispo
+    // ----------------------------
+    // O bispo se move na diagonal superior direita, que é uma combinação de "Cima" e "Direita"
+    // Utilizaremos um loop "for" para repetir a combinação 5 vezes.
+
+    printf("Movimentação do Bispo:\n");
+    for (i = 0; i < MOV_BISPO; i++) {
+        printf("Cima\n");
+        printf("Direita\n");
+    }
+
+    printf("\n");
+
+    // ----------------------------
+    // Movimentação da Torre
+    // ----------------------------
+    // A torre se move 5 casas para a direita.
+    // Utilizaremos um loop "while" para repetir o movimento.
+
+    printf("Movimentação da Torre:\n");
+    i = 0;
+    while (i < MOV_TORRE) {
+        printf("Direita\n");
+        i++;
+    }
+
+    printf("\n");
+
+    // ----------------------------
+    // Movimentação da Rainha
+    // ----------------------------
+    // A rainha se move 8 casas para a esquerda.
+    // Utilizaremos um loop "do-while" para repetir o movimento.
+
+    printf("Movimentação da Rainha:\n");
+    i = 0;
+    do {
+        printf("Esquerda\n");
+        i++;
+    } while (i < MOV_RAINHA);
+
+    return 0;
+}

@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+// Desafio de Xadrez - MateCheck
+// Simulação da movimentação das peças: Bispo, Torre, Rainha e Cavalo
+
+// Constantes de movimentação
+const int MOV_BISPO = 5;
+const int MOV_TORRE = 5;
+const int MOV_RAINHA = 8;
+
+int main() {
+    int i;
+
+    // ===============================
+    // Movimentação do Bispo
+    // ===============================
+    printf("Movimentação do Bispo (Diagonal Superior Direita):\n");
+    for (i = 0; i < MOV_BISPO; i++) {
+        printf("Cima\n");
+        printf("Direita\n");
+    }
+    printf("\n");
+
+    // ===============================
+    // Movimentação da Torre
+    // ===============================
+    printf("Movimentação da Torre (Direita):\n");
+    i = 0;
+    while (i < MOV_TORRE) {
+        printf("Direita\n");
+        i++;
+    }
+    printf("\n");
+
+    // ===============================
+    // Movimentação da Rainha
+    // ===============================
+    printf("Movimentação da Rainha (Esquerda):\n");
+    i = 0;
+    do {
+        printf("Esquerda\n");
+        i++;
+    } while (i < MOV_RAINHA);
+    printf("\n");
+
+    // ===============================
+    // Movimentação do Cavalo
+    // ===============================
+    printf("Movimentação do Cavalo (Movimentos em L):\n");
+    // O cavalo possui 8 possibilidades de movimento em "L"
+    // Usaremos loops aninhados para demonstrar "2 passos numa direção + 1 na outra"
+    const char* direcoes1[] = {"Cima", "Baixo", "Esquerda", "Direita"};
+    const char* direcoes2[] = {"Direita", "Esquerda", "Cima", "Baixo"};
+
+    for (i = 0; i < 4; i++) {
+        int j;
+        for (j = 0; j < 2; j++) { // duas variações por direção principal
+            printf("Movimento em L #%d:\n", i * 2 + j + 1);
+            printf("%s\n", direcoes1[i]);
+            printf("%s\n", direcoes1[i]);
+            printf("%s\n", direcoes2[i]);
+        }
+    }
+
+    return 0;
+}

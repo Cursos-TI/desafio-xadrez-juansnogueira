@@ -1,0 +1,84 @@
+#include <stdio.h>
+
+// Constantes de movimentação
+#define MOV_BISPO 5
+#define MOV_TORRE 5
+#define MOV_RAINHA 8
+
+// ---------------------------
+// Funções Recursivas
+// ---------------------------
+void moverBispo(int passos) {
+    if (passos == 0) return;
+    printf("Cima\n");
+    printf("Direita\n");
+    moverBispo(passos - 1);
+}
+
+void moverTorre(int passos) {
+    if (passos == 0) return;
+    printf("Direita\n");
+    moverTorre(passos - 1);
+}
+
+void moverRainha(int passos) {
+    if (passos == 0) return;
+    printf("Esquerda\n");
+    moverRainha(passos - 1);
+}
+
+// ---------------------------
+// Main
+// ---------------------------
+int main() {
+    // ===============================
+    // Movimentação do Bispo
+    // ===============================
+    printf("Movimentação do Bispo (Diagonal Superior Direita):\n");
+    moverBispo(MOV_BISPO);
+    printf("\n");
+
+    // ===============================
+    // Movimentação da Torre
+    // ===============================
+    printf("Movimentação da Torre (Direita):\n");
+    moverTorre(MOV_TORRE);
+    printf("\n");
+
+    // ===============================
+    // Movimentação da Rainha (Esquerda)
+    // ===============================
+    printf("Movimentação da Rainha (Esquerda):\n");
+    moverRainha(MOV_RAINHA);
+    printf("\n");
+
+    // ===============================
+    // Movimentação do Cavalo (Lógica Avançada)
+    // ===============================
+    printf("Movimentação do Cavalo (Movimentos em L com Validação):\n");
+
+    int dx[] = {2, 1, -1, -2, -2, -1, 1, 2};   // deslocamentos horizontais
+    int dy[] = {1, 2, 2, 1, -1, -2, -2, -1};   // deslocamentos verticais
+
+    int origemX = 4, origemY = 4; // posição inicial (ex: centro do tabuleiro 8x8)
+
+    for (int i = 0; i < 8; i++) {
+        int destinoX = origemX + dx[i];
+        int destinoY = origemY + dy[i];
+
+        // Verificar limites do tabuleiro 8x8
+        if (destinoX < 0 || destinoX > 7 || destinoY < 0 || destinoY > 7) {
+            continue; // ignora movimentos inválidos
+        }
+
+        // Simula uma condição de bloqueio (ex: destino igual à posição original)
+        if (destinoX == origemX && destinoY == origemY) {
+            break; // interrompe o loop se condição crítica for atingida
+        }
+
+        // Imprime movimento válido
+        printf("Movimento em L para (%d, %d)\n", destinoX, destinoY);
+    }
+
+    return 0;
+}
